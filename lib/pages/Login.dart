@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:splash_login/animation/fadeAnimation.dart';
+import 'package:splash_login/pages/home.dart';
 import 'package:splash_login/utils/constant.dart';
 
 class Login extends StatefulWidget {
@@ -97,22 +99,44 @@ class _LoginState extends State<Login> {
                       delay: 3,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 30),
-                        child: ElevatedButton(
-                          onPressed: (){},
-                          child: Padding(
-                            padding: const EdgeInsets.all(13.0),
-                            child: Text('Login',style: (TextStyle(
+                        child: GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, PageTransition(child: Home(), type: PageTransitionType.fade));
+                          },
+                          // child: ElevatedButton(
+                          //   onPressed: (){},
+                          //   child: Padding(
+                          //     padding: const EdgeInsets.all(13.0),
+                          //     child: Text('Login',style: (TextStyle(
+                          //       fontSize: 20,
+                          //       color: Colors.black
+                          //     )),),
+                          //   ),
+                          //   style: ButtonStyle(
+                          //     backgroundColor: MaterialStateProperty.all(oceangreen),
+                        
+                          //     overlayColor: MaterialStateProperty.all(Colors.orange[300]),
+                              
+                          //     shape: MaterialStateProperty.all(
+                          //       RoundedRectangleBorder(
+                          //         borderRadius: BorderRadius.circular(30)
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
+                          child: Container(
+                            height: 50,
+                            width: 95,
+                            child: Align(child: Text('Login',
+                            style: TextStyle(
                               fontSize: 20,
-                              color: Colors.black
-                            )),),
-                          ),
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(oceangreen),
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30)
-                              )
-                            )
+                              fontWeight: FontWeight.bold
+                              ),
+                            )),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(26),
+                              color: oceangreen,
+                            ),
                           ),
                         ),
                       ),
